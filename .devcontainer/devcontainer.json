@@ -2,14 +2,18 @@
     "name": "Terraform",
     "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu-22.04",
     "features": {
-        "ghcr.io/devcontainers/features/common-utils:2": {
-        },
+        "ghcr.io/devcontainers/features/common-utils:2": {},
         "ghcr.io/devcontainers/features/git:1": {
             "version": "latest",
             "ppa": "false"
         },
         "ghcr.io/devcontainers/features/github-cli:1": {
             "version": "latest"
+        },
+        "ghcr.io/devcontainers/features/azure-cli:1": {
+            "version": "latest",
+            "extensions": "resource-graph,deploy-to-azure",
+            "installBicep": true
         },
         "ghcr.io/devcontainers/features/terraform:1": {
             "version": "latest"
@@ -19,14 +23,24 @@
         "ghcr.io/devcontainers/features/common-utils",
         "ghcr.io/devcontainers/features/git",
         "ghcr.io/devcontainers/features/github-cli",
+        "ghcr.io/devcontainers/features/azure-cli",
         "ghcr.io/devcontainers/features/terraform"
     ],
     "customizations": {
         "vscode": {
             "extensions": [
                 "GitHub.vscode-pull-request-github",
+                "ms-vscode.azurecli",
                 "HashiCorp.terraform",
-                "ms-azuretools.vscode-azureterraform"
+                "ms-azuretools.vscode-azureterraform",
+                "ms-azuretools.vscode-azureresourcegroups",
+                "ms-azuretools.vscode-bicep",
+                "editorconfig.editorconfig",
+                "github.vscode-github-actions",
+                "github.codespaces",
+                "github.copilot",
+                "ms-vscode.powershell",
+                "ms-vscode.azure-account"
             ],
             "settings": {
                 "terraform.languageServer.enable": true,
