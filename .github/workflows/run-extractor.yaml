@@ -6,6 +6,7 @@ on:
       CONFIGURATION_YAML_PATH:
         description: 'Choose Wether to extract all Apis or extract apis listed an extraction configuration file'     
         required: true
+        default: 'Extract All APIs'
         type: choice
         options:
         - Extract All APIs
@@ -13,6 +14,7 @@ on:
       API_SPECIFICATION_FORMAT:
         description: 'API Specification Format'     
         required: true
+        default: 'OpenAPIV3Json'
         type: choice
         options:
         - OpenAPIV3Yaml 
