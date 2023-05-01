@@ -1,0 +1,49 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "API-NIKE-BILL-OF-MATERIAL",
+        "description": "",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "https://apim-contoso-demo-mijohns.azure-api.net/bill_of_material"
+        }
+    ],
+    "paths": {
+        "/": {
+            "post": {
+                "summary": "bill_of_material",
+                "description": "bill_of_material",
+                "operationId": "bill-of-material",
+                "responses": {
+                    "200": {
+                        "description": "null"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "apiKeyHeader": {
+                "type": "apiKey",
+                "name": "Ocp-Apim-Subscription-Key",
+                "in": "header"
+            },
+            "apiKeyQuery": {
+                "type": "apiKey",
+                "name": "subscription-key",
+                "in": "query"
+            }
+        }
+    },
+    "security": [
+        {
+            "apiKeyHeader": []
+        },
+        {
+            "apiKeyQuery": []
+        }
+    ]
+}
