@@ -1,4 +1,4 @@
-apimServiceName: apim-test-instance-qa
+apimServiceName: apim-contoso-demo-mijohns-qa
 namedValues:
   - name: ResourceGroupSecret
     properties:
