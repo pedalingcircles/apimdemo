@@ -17,9 +17,7 @@ on:
         type: string
 
 env:
-  apiops_release_version: 'v4.1.3'
-  #By default, this will be Information but if you want something different you will need to add a variable in the Settings -> Environment -> Environment variables section
-  Logging__LogLevel__Default: ${{ vars.LOG_LEVEL }}
+  apiops_release_version: v4.1.2
 
 jobs:
   build:
@@ -40,16 +38,19 @@ jobs:
 
       # Add this step for each APIM environment and pass specific set of secrets that you want replaced in the env section below
       - name: "Perform namevalue secret substitution in configuration.${{ inputs.API_MANAGEMENT_ENVIRONMENT}}.yaml"
-        if: (inputs.API_MANAGEMENT_ENVIRONMENT == 'qa' )
+        if: (inputs.API_MANAGEMENT_ENVIRONMENT == 'QA' )
         uses: cschleiden/replace-tokens@v1.1
         with:
           tokenPrefix: "{#"
           tokenSuffix: "#}"
-          files: ${{ format('["**/configuration.{0}.yaml"]', inputs.API_MANAGEMENT_ENVIRONMENT) }}
+          files: ${{ format('["**/{0}"]', inputs.CONFIGURATION_YAML_PATH) }}
         # specify environment specific secrets to be replaced. For example the QA environment could have a different set secrets to
         # replace within the configuration.[environment].yaml file
+#        env:
+#          testSecretValue: ${{ secrets.AZURE_RESOURCE_GROUP_NAME }}
         env:
-          testSecretValue: ${{ secrets.AZURE_RESOURCE_GROUP_NAME }}
+          ResourceGroupSecretValue: ${{ secrets.AZURE_RESOURCE_GROUP_NAME }}
+          APIMInstanceSecretValue: ${{ secrets.AZURE_MANAGEMENT_SERVICE_NAME }}
 
       - name: Run publisher without Config Yaml but with Commit ID
         if: ( inputs.CONFIGURATION_YAML_PATH == '' &&  inputs.COMMIT_ID != '')
