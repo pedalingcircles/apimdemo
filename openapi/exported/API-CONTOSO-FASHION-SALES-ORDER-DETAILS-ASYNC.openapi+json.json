@@ -1,29 +1,20 @@
 {
     "openapi": "3.0.1",
     "info": {
-        "title": "API-NIKE-FASHION-SALES-CONTRACT-DETAILS",
+        "title": "API-CONTOSO-FASHION-SALES-ORDER-DETAILS-ASYNC",
         "description": "",
         "version": "1.0"
     },
     "servers": [
         {
-            "url": "https://n0-sap01-if-apim.azure-api.net/api/v1/fashion/salescontract"
+            "url": "https://n0-sap01-if-apim.azure-api.net/api/v1/Fashion/AsynchSalesOrder"
         }
     ],
     "paths": {
         "/": {
-            "get": {
-                "summary": "getsalescontract",
-                "operationId": "getsalescontract",
-                "responses": {
-                    "200": {
-                        "description": null
-                    }
-                }
-            },
             "post": {
-                "summary": "postsalescontract",
-                "operationId": "postsalescontract",
+                "summary": "fashionasynchsalesorder",
+                "operationId": "fashionasynchsalesorder",
                 "responses": {
                     "200": {
                         "description": null
